@@ -1,0 +1,166 @@
+
+Menu.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+logoBackground
+  rotate: false
+  xy: 1, 834
+  size: 704, 189
+  orig: 704, 189
+  offset: 0, 0
+  index: -1
+memoBoxes
+  rotate: false
+  xy: 1, 707
+  size: 704, 125
+  orig: 704, 125
+  offset: 0, 0
+  index: -1
+ustawienia2
+  rotate: false
+  xy: 1, 639
+  size: 486, 66
+  orig: 486, 66
+  offset: 0, 0
+  index: -1
+darkGreenS
+  rotate: false
+  xy: 1, 167
+  size: 40, 470
+  orig: 40, 470
+  offset: 0, 0
+  index: -1
+lightGreenS
+  rotate: false
+  xy: 43, 167
+  size: 40, 470
+  orig: 40, 470
+  offset: 0, 0
+  index: -1
+textureNormalLong
+  rotate: false
+  xy: 85, 539
+  size: 400, 98
+  orig: 400, 98
+  offset: 0, 0
+  index: -1
+buttonNormalLong
+  rotate: false
+  xy: 85, 439
+  size: 360, 98
+  orig: 360, 98
+  offset: 0, 0
+  index: -1
+settingsTextureEN
+  rotate: false
+  xy: 85, 370
+  size: 386, 67
+  orig: 386, 67
+  offset: 0, 0
+  index: -1
+buttonNormal
+  rotate: false
+  xy: 707, 925
+  size: 300, 98
+  orig: 300, 98
+  offset: 0, 0
+  index: -1
+gryRozegrane
+  rotate: false
+  xy: 85, 337
+  size: 314, 31
+  orig: 314, 31
+  offset: 0, 0
+  index: -1
+wyjscie
+  rotate: false
+  xy: 707, 873
+  size: 255, 50
+  orig: 255, 50
+  offset: 0, 0
+  index: -1
+gamesPlayed2
+  rotate: false
+  xy: 85, 304
+  size: 270, 31
+  orig: 270, 31
+  offset: 0, 0
+  index: -1
+graj
+  rotate: false
+  xy: 707, 803
+  size: 208, 68
+  orig: 208, 68
+  offset: 0, 0
+  index: -1
+buttonHardPressed
+  rotate: false
+  xy: 489, 660
+  size: 190, 45
+  orig: 190, 45
+  offset: 0, 0
+  index: -1
+play
+  rotate: false
+  xy: 85, 247
+  size: 167, 55
+  orig: 167, 55
+  offset: 0, 0
+  index: -1
+exit
+  rotate: false
+  xy: 707, 746
+  size: 161, 55
+  orig: 161, 55
+  offset: 0, 0
+  index: -1
+select
+  rotate: false
+  xy: 85, 214
+  size: 136, 31
+  orig: 136, 31
+  offset: 0, 0
+  index: -1
+infoIcon
+  rotate: false
+  xy: 1, 101
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+shoping_cart
+  rotate: false
+  xy: 1, 35
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+element_grey_rectangle_glossy
+  rotate: false
+  xy: 1, 1
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+element_blue_square_glossy
+  rotate: false
+  xy: 447, 505
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+element_green_square_glossy
+  rotate: false
+  xy: 964, 891
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+element_red_square_glossy
+  rotate: false
+  xy: 917, 839
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
