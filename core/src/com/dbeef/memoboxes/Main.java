@@ -308,12 +308,12 @@ public	ParticleEffect iceParticle;
 	public Sprite gemBlueSprite;
 	public Texture textButtonPlayPL;
 	public Texture textButtonSettingsPL;
-	public ShopItem s1 = new ShopItem();
-	public ShopItem s2 = new ShopItem();
-	public ShopItem s3 = new ShopItem();
-	public ShopItem s4 = new ShopItem();
-	public ShopItem s5 = new ShopItem();
-	public ShopItem s6 = new ShopItem();
+	public ShopItem s1;
+	public ShopItem s2;
+	public ShopItem s3;
+	public ShopItem s4;
+	public ShopItem s5;
+	public ShopItem s6;
 
 
 	public Jukebox jukebox;
@@ -1464,12 +1464,12 @@ public	ParticleEffect iceParticle;
 		// textureNormalClicked.setFilter(TextureFilter.Linear,
 		// TextureFilter.Linear);
 
-		s1.load(regionsMenu[13], 60, -175, true, true);
-		s2.load(regionsMenu[13], 35, -255, false, false);
-		s3.load(regionsMenu[13], 60, -333, false, false);
-		s4.load(regionsMenu[13], 35, -410, false, false);
-		s5.load(regionsMenu[13], 60, -485, false, false);
-		s6.load(regionsMenu[13], 35, -560, false, false);
+		s1 = new ShopItem(regionsMenu[13], 60, -175, true, true);
+		s2 = new ShopItem(regionsMenu[13], 35, -255, false, false);
+		s3 = new ShopItem(regionsMenu[13], 60, -333, false, false);
+		s4 = new ShopItem(regionsMenu[13], 35, -410, false, false);
+		s5 = new ShopItem(regionsMenu[13], 60, -485, false, false);
+		s6 = new ShopItem(regionsMenu[13], 35, -560, false, false);
 
 		// textureHard.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 

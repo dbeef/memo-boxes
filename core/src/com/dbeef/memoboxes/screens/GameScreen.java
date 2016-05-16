@@ -1987,17 +1987,19 @@ public class GameScreen implements Screen {
 		}
 
 		if (game.fire.clicked == true)
-			game.fire.clicked = false;
+			game.fire.clicked = !game.fire.clicked;
 		if (game.wind.clicked == true)
-			game.wind.clicked = false;
+			game.wind.clicked = !game.wind.clicked;
 		if (game.ice.clicked == true)
-			game.ice.clicked = false;
-
+			game.ice.clicked = !game.ice.clicked;
+			
+		
 		if (Gdx.input.isTouched()) {
 			Vector3 touchPos = new Vector3();
 			touchPos.set(Gdx.input.getX(), Gdx.input.getY(), 0);
+			
 			game.camera.unproject(touchPos);
-			// game.camera.zoom = 4f;
+
 			if (backButton.button_mouse_collision(touchPos.x, touchPos.y) == true) {
 				if (ilePunktow > game.prefs.getInteger("highscore")) {
 					game.prefs.putInteger("highscore", ilePunktow);
@@ -2009,8 +2011,6 @@ public class GameScreen implements Screen {
 
 				backButton.clicked = true;
 				czyPrzyciemnij = true;
-
-				// game.setScreen(new MainMenuScreen(game));
 
 			} else
 				backButton.clicked = false;
@@ -2114,21 +2114,6 @@ public class GameScreen implements Screen {
 			} else
 				game.buttonCross.clicked = false;
 
-			// Iterator<Gem> iterGems = gems.iterator();
-			// Iterator<Body> iterBodies = game.bodies.iterator();
-			//
-			/*
-			 * while (iterBodies.hasNext() && iterGems.hasNext()){ Body body =
-			 * iterBodies.next(); Gem gemini = iterGems.next();
-			 * 
-			 * 
-			 * if( gemini.checkColision((int)touchPos.x, (int)touchPos.y) ==
-			 * true);
-			 * 
-			 * }
-			 */
-
-			//
 
 		}
 		if (Gdx.input.isTouched() == false) {

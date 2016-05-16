@@ -286,11 +286,11 @@ game.exitSprite.setAlpha(1);
 	
 //		game.ktorySkin = game.prefs.getInteger("ktorySkin");
 //		game.s1.czyKupiony = game.prefs.getBoolean("s1");
-		game.s2.czyKupiony = game.prefs.getBoolean("s2");
-		game.s3.czyKupiony = game.prefs.getBoolean("s3");
-	game.s4.czyKupiony = game.prefs.getBoolean("s4");
-	game.s5.czyKupiony = game.prefs.getBoolean("s5");
-	game.s6.czyKupiony = game.prefs.getBoolean("s6");
+		game.s2.isAlreadyBought = game.prefs.getBoolean("s2");
+		game.s3.isAlreadyBought = game.prefs.getBoolean("s3");
+	game.s4.isAlreadyBought = game.prefs.getBoolean("s4");
+	game.s5.isAlreadyBought = game.prefs.getBoolean("s5");
+	game.s6.isAlreadyBought = game.prefs.getBoolean("s6");
 		
 		
 		   
@@ -446,7 +446,9 @@ if (Gdx.input.isTouched()) {
 	
 	Vector3 touchPos = new Vector3();
        touchPos.set(Gdx.input.getX(), Gdx.input.getY(), 0);
-      game.camera.unproject(touchPos);
+     
+       game.camera.unproject(touchPos);
+       
        if(generalAlpha >0.93){
 if(game.button3.button_mouse_collision(touchPos.x, touchPos.y) == true){
 czyPrzyciemnienie = true;
@@ -471,6 +473,7 @@ if(game.wibracje == true)Gdx.input.vibrate(40);
        
 	   
        if(game.buttonNormal.button_mouse_collision(touchPos.x, touchPos.y) == true){
+    	
     	   game.buttonNormal.clicked = true;
 
     	   czyPrzyciemnienie = true;
@@ -514,48 +517,48 @@ if(game.wibracje == true)Gdx.input.vibrate(40);
        }
        }
        //
-       if(game.s1.button_mouse_collision(touchPos.x, touchPos.y) == true && game.s1.czyKupiony == false && generalAlpha == 0 ){
-    	   game.s1.czyKupiony = true;
+       if(game.s1.buttonMouseCollision(touchPos.x, touchPos.y) == true && game.s1.isAlreadyBought == false && generalAlpha == 0 ){
+    	   game.s1.isAlreadyBought = true;
     	   timerPoKupieniu = 0.5f;
     	   //  game.prefs.putBoolean("s1", true);
     	 //50,150,350,500,1000
-       }   if(game.s2.button_mouse_collision(touchPos.x, touchPos.y) == true && game.s2.czyKupiony == false && generalAlpha == 0 && game.ileGemow >= 50){
- 	   game.s2.czyKupiony = true;
+       }   if(game.s2.buttonMouseCollision(touchPos.x, touchPos.y) == true && game.s2.isAlreadyBought == false && generalAlpha == 0 && game.ileGemow >= 50){
+ 	   game.s2.isAlreadyBought = true;
  	   game.ileGemow -= 50;
  		game.prefs.putInteger("ileGemow", game.ileGemow);
 	   timerPoKupieniu = 0.5f;
 	   game.prefs.putBoolean("s2", true);
 //	   game.prefs.flush();
- }   if(game.s3.button_mouse_collision(touchPos.x, touchPos.y) == true && game.s3.czyKupiony == false && generalAlpha == 0 && game.ileGemow >= 150){
+ }   if(game.s3.buttonMouseCollision(touchPos.x, touchPos.y) == true && game.s3.isAlreadyBought == false && generalAlpha == 0 && game.ileGemow >= 150){
 	   game.ileGemow -= 150;
 		game.prefs.putInteger("ileGemow", game.ileGemow);
 
-	 game.s3.czyKupiony = true;
+	 game.s3.isAlreadyBought = true;
 	   timerPoKupieniu = 0.5f;
 	   game.prefs.putBoolean("s3", true);
 //	   game.prefs.flush();
- }   if(game.s4.button_mouse_collision(touchPos.x, touchPos.y) == true && game.s4.czyKupiony == false && generalAlpha == 0 && game.ileGemow >= 350){
+ }   if(game.s4.buttonMouseCollision(touchPos.x, touchPos.y) == true && game.s4.isAlreadyBought == false && generalAlpha == 0 && game.ileGemow >= 350){
 	   game.ileGemow -= 350;
 		game.prefs.putInteger("ileGemow", game.ileGemow);
 
-	 game.s4.czyKupiony = true;
+	 game.s4.isAlreadyBought = true;
 	   timerPoKupieniu = 0.5f;
 	   game.prefs.putBoolean("s4", true);
 //	   game.prefs.flush();
-}   if(game.s5.button_mouse_collision(touchPos.x, touchPos.y) == true && game.s5.czyKupiony == false && generalAlpha == 0 && game.ileGemow >= 500){
+}   if(game.s5.buttonMouseCollision(touchPos.x, touchPos.y) == true && game.s5.isAlreadyBought == false && generalAlpha == 0 && game.ileGemow >= 500){
 	   game.ileGemow -= 500;
 		game.prefs.putInteger("ileGemow", game.ileGemow);
 
-	game.s5.czyKupiony = true;
+	game.s5.isAlreadyBought = true;
 	   timerPoKupieniu = 0.5f;
 	   game.prefs.putBoolean("s5", true);
 //	   game.prefs.flush();
 }
-       if(game.s6.button_mouse_collision(touchPos.x, touchPos.y) == true && game.s6.czyKupiony == false && generalAlpha == 0 && game.ileGemow >= 1000){
+       if(game.s6.buttonMouseCollision(touchPos.x, touchPos.y) == true && game.s6.isAlreadyBought == false && generalAlpha == 0 && game.ileGemow >= 1000){
      	   game.ileGemow -= 1000;
     		game.prefs.putInteger("ileGemow", game.ileGemow);
 
-    	   game.s6.czyKupiony = true;
+    	   game.s6.isAlreadyBought = true;
     	   timerPoKupieniu = 0.5f;
     	   game.prefs.putBoolean("s6", true);
     	   
@@ -563,7 +566,7 @@ if(game.wibracje == true)Gdx.input.vibrate(40);
        }
  //
 
-       if(game.s1.button_mouse_collision(touchPos.x, touchPos.y) == true && game.s1.czyKupiony == true && generalAlpha == 0 && timerPoKupieniu == 0 && czyWroc == false && game.backButtonShop.y >= 710){
+       if(game.s1.buttonMouseCollision(touchPos.x, touchPos.y) == true && game.s1.isAlreadyBought == true && generalAlpha == 0 && timerPoKupieniu == 0 && czyWroc == false && game.backButtonShop.y >= 710){
     	  if(game.ktorySkin != 1){
     			  game.Green.button_texture_notClicked = game.cardGreen;
     			  game.Green.button_texture_notClicked.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
@@ -583,19 +586,19 @@ if(game.wibracje == true)Gdx.input.vibrate(40);
     	   	game.kartonator.spriteRed.setSize(140, 190);
     	   	game.kartonator.spriteBlue.setSize(140, 190);
     	  }
-    	   game.s1.czyKupiony = true;
+    	   game.s1.isAlreadyBought = true;
     	   wlaczTimer = true;
       		czyWroc = true;
      	   czyPrzejscie = false;
     	  game.jukebox.playClick();
-    	  game.s1.mrygnij = true;
+    	  game.s1.blink = true;
     	 if(game.wibracje == true)Gdx.input.vibrate(40);
     	 game.ktorySkin = 1;
   	   game.prefs.putInteger("ktorySkin", 1);
   	  // game.prefs.flush();
 
 
-    }   if(game.s2.button_mouse_collision(touchPos.x, touchPos.y) == true && game.s2.czyKupiony == true && generalAlpha == 0 && timerPoKupieniu == 0 && czyWroc == false && game.backButtonShop.y >= 710){
+    }   if(game.s2.buttonMouseCollision(touchPos.x, touchPos.y) == true && game.s2.isAlreadyBought == true && generalAlpha == 0 && timerPoKupieniu == 0 && czyWroc == false && game.backButtonShop.y >= 710){
   	  if(game.ktorySkin != 2){
 		  game.Green.button_texture_notClicked = game.cardGreen2;
 		  game.Green.button_texture_notClicked.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
@@ -615,17 +618,17 @@ if(game.wibracje == true)Gdx.input.vibrate(40);
        	game.kartonator.spriteRed.setSize(140, 190);
        	game.kartonator.spriteBlue.setSize(140, 190);
   	  }
-    	game.s2.czyKupiony = true;
+    	game.s2.isAlreadyBought = true;
 	   wlaczTimer = true;
   		czyWroc = true;
  	   czyPrzejscie = false;
 	  game.jukebox.playClick();
 	 if(game.wibracje == true)Gdx.input.vibrate(40);
-	 game.s2.mrygnij = true;  
+	 game.s2.blink = true;  
 	   game.ktorySkin = 2;
 	   game.prefs.putInteger("ktorySkin", 2);
 //game.prefs.flush();
-    }   if(game.s3.button_mouse_collision(touchPos.x, touchPos.y) == true && game.s3.czyKupiony == true && generalAlpha == 0 && timerPoKupieniu == 0 && czyWroc == false && game.backButtonShop.y >= 710){
+    }   if(game.s3.buttonMouseCollision(touchPos.x, touchPos.y) == true && game.s3.isAlreadyBought == true && generalAlpha == 0 && timerPoKupieniu == 0 && czyWroc == false && game.backButtonShop.y >= 710){
     	  if(game.ktorySkin != 3){
     		  game.Green.button_texture_notClicked = game.cardGreen3;
     		  game.Green.button_texture_notClicked.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
@@ -645,8 +648,8 @@ if(game.wibracje == true)Gdx.input.vibrate(40);
            	game.kartonator.spriteRed.setSize(140, 190);
            	game.kartonator.spriteBlue.setSize(140, 190);
       	  }
-    	game.s3.czyKupiony = true;
-	   game.s3.mrygnij = true;
+    	game.s3.isAlreadyBought = true;
+	   game.s3.blink = true;
 	   wlaczTimer = true;
   		czyWroc = true;
  	   czyPrzejscie = false;
@@ -655,7 +658,7 @@ if(game.wibracje == true)Gdx.input.vibrate(40);
 	 game.ktorySkin = 3;
 	   game.prefs.putInteger("ktorySkin", 3);
 	 // game.prefs.flush(); 
-}   if(game.s4.button_mouse_collision(touchPos.x, touchPos.y) == true && game.s4.czyKupiony == true && generalAlpha == 0 && timerPoKupieniu == 0 && czyWroc == false && game.backButtonShop.y >= 710){
+}   if(game.s4.buttonMouseCollision(touchPos.x, touchPos.y) == true && game.s4.isAlreadyBought == true && generalAlpha == 0 && timerPoKupieniu == 0 && czyWroc == false && game.backButtonShop.y >= 710){
 	  if(game.ktorySkin != 4){
 		  game.Green.button_texture_notClicked = game.cardGreen4;
 		  game.Green.button_texture_notClicked.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
@@ -675,8 +678,8 @@ if(game.wibracje == true)Gdx.input.vibrate(40);
      	game.kartonator.spriteRed.setSize(140, 190);
      	game.kartonator.spriteBlue.setSize(140, 190);
 	  }   
-	game.s4.czyKupiony = true;
-	   game.s4.mrygnij = true;
+	game.s4.isAlreadyBought = true;
+	   game.s4.blink = true;
 	   wlaczTimer = true;
   		czyWroc = true;
  	   czyPrzejscie = false;
@@ -685,7 +688,7 @@ if(game.wibracje == true)Gdx.input.vibrate(40);
 	   game.ktorySkin = 4;
 	   game.prefs.putInteger("ktorySkin", 4);
 	//game.prefs.flush();   
-}   if(game.s5.button_mouse_collision(touchPos.x, touchPos.y) == true && game.s5.czyKupiony == true && generalAlpha == 0 && timerPoKupieniu == 0 && czyWroc == false && game.backButtonShop.y >= 710){
+}   if(game.s5.buttonMouseCollision(touchPos.x, touchPos.y) == true && game.s5.isAlreadyBought == true && generalAlpha == 0 && timerPoKupieniu == 0 && czyWroc == false && game.backButtonShop.y >= 710){
 	  if(game.ktorySkin != 5){
 		  game.Green.button_texture_notClicked = game.cardGreen5;
 		  game.Green.button_texture_notClicked.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
@@ -705,8 +708,8 @@ if(game.wibracje == true)Gdx.input.vibrate(40);
      	game.kartonator.spriteRed.setSize(140, 190);
      	game.kartonator.spriteBlue.setSize(140, 190);
 	  }   
-	game.s5.czyKupiony = true;
-	   game.s5.mrygnij = true;
+	game.s5.isAlreadyBought = true;
+	   game.s5.blink = true;
 	   wlaczTimer = true;
   		czyWroc = true;
  	   czyPrzejscie = false;
@@ -716,7 +719,7 @@ if(game.wibracje == true)Gdx.input.vibrate(40);
 	   game.prefs.putInteger("ktorySkin", 5);	   
 	 // game.prefs.flush();
 }
-       if(game.s6.button_mouse_collision(touchPos.x, touchPos.y) == true && game.s6.czyKupiony == true && generalAlpha == 0 && timerPoKupieniu == 0 && czyWroc == false && game.backButtonShop.y >= 710){
+       if(game.s6.buttonMouseCollision(touchPos.x, touchPos.y) == true && game.s6.isAlreadyBought == true && generalAlpha == 0 && timerPoKupieniu == 0 && czyWroc == false && game.backButtonShop.y >= 710){
     	  	  if(game.ktorySkin != 6){
     			  game.Green.button_texture_notClicked = game.cardGreen6;
     			  game.Green.button_texture_notClicked.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
@@ -736,8 +739,8 @@ if(game.wibracje == true)Gdx.input.vibrate(40);
     	       	game.kartonator.spriteRed.setSize(140, 190);
     	       	game.kartonator.spriteBlue.setSize(140, 190);
     	  	  }
-    	   game.s6.mrygnij = true;
-    	   game.s6.czyKupiony = true;
+    	   game.s6.blink = true;
+    	   game.s6.isAlreadyBought = true;
     	   wlaczTimer = true;
       		czyWroc = true;
      	   czyPrzejscie = false;
@@ -1270,161 +1273,161 @@ game.batch.setColor(1,1,1,(float)generalAlpha);
 	
 		if(przejscieDoInfo == false){
 		//
-			if(game.s1.item_y > -100)
+			if(game.s1.y > -100)
 		game.s1.draw(game.batch);
-if(game.s1.czyKupiony == true){
+if(game.s1.isAlreadyBought == true){
 	game.r4Sprite.setScale((float)R4Scale);
 	game.r5Sprite.setScale((float)R5Scale);
 	game.r6Sprite.setScale((float)R6Scale);
-	game.r4Sprite.setPosition(game.s1.item_x - 60,game.s1.item_y +5);
-	game.r5Sprite.setPosition(game.s1.item_x - 12,game.s1.item_y + 5);
-	game.r6Sprite.setPosition(game.s1.item_x + 36,game.s1.item_y + 5);
-	if( game.s1.item_y > - 60){
+	game.r4Sprite.setPosition(game.s1.x - 60,game.s1.y +5);
+	game.r5Sprite.setPosition(game.s1.x - 12,game.s1.y + 5);
+	game.r6Sprite.setPosition(game.s1.x + 36,game.s1.y + 5);
+	if( game.s1.y > - 60){
 	game.r4Sprite.draw(game.batch);
 	game.r5Sprite.draw(game.batch);
 	game.r6Sprite.draw(game.batch);
 }
 }
-if(game.s2.item_y > -100)
+if(game.s2.y > -100)
 game.s2.draw(game.batch);
-		if(game.s2.czyKupiony == true){
+		if(game.s2.isAlreadyBought == true){
 		game.r1Sprite.setScale((float)R1Scale);
 		game.r2Sprite.setScale((float)R2Scale);
 		game.r3Sprite.setScale((float)R3Scale);
-		game.r1Sprite.setPosition(game.s2.item_x - 80,game.s2.item_y -12);
-		game.r2Sprite.setPosition(game.s2.item_x - 32,game.s2.item_y -12);
-		game.r3Sprite.setPosition(game.s2.item_x + 16,game.s2.item_y -12);			 
-		if( game.s2.item_y > - 60){
+		game.r1Sprite.setPosition(game.s2.x - 80,game.s2.y -12);
+		game.r2Sprite.setPosition(game.s2.x - 32,game.s2.y -12);
+		game.r3Sprite.setPosition(game.s2.x + 16,game.s2.y -12);			 
+		if( game.s2.y > - 60){
 
 		game.r1Sprite.draw(game.batch);
 		game.r2Sprite.draw(game.batch);
 		game.r3Sprite.draw(game.batch);
 		}
 		}		
-		if(game.s3.item_y > -100)
+		if(game.s3.y > -100)
 		game.s3.draw(game.batch);
-		if(game.s3.czyKupiony == true){
+		if(game.s3.isAlreadyBought == true){
 			game.r7Sprite.setScale((float)R7Scale);
 			game.r8Sprite.setScale((float)R8Scale);
 			game.r9Sprite.setScale((float)R9Scale);
-			game.r7Sprite.setPosition(game.s3.item_x - 80,game.s3.item_y -12);
-			game.r8Sprite.setPosition(game.s3.item_x - 32,game.s3.item_y -12);
-			game.r9Sprite.setPosition(game.s3.item_x + 16,game.s3.item_y -12);			 
-			if( game.s3.item_y > - 60){
+			game.r7Sprite.setPosition(game.s3.x - 80,game.s3.y -12);
+			game.r8Sprite.setPosition(game.s3.x - 32,game.s3.y -12);
+			game.r9Sprite.setPosition(game.s3.x + 16,game.s3.y -12);			 
+			if( game.s3.y > - 60){
 			game.r7Sprite.draw(game.batch);
 			game.r8Sprite.draw(game.batch);
 			game.r9Sprite.draw(game.batch);
 			}
 			}
-		if(game.s4.item_y > -100)
+		if(game.s4.y > -100)
 		game.s4.draw(game.batch);
-		if(game.s4.czyKupiony == true){
+		if(game.s4.isAlreadyBought == true){
 			game.r10Sprite.setScale((float)R10Scale);
 			game.r11Sprite.setScale((float)R11Scale);
 			game.r12Sprite.setScale((float)R12Scale);
-			game.r10Sprite.setPosition(game.s4.item_x - 68,game.s4.item_y -12);
-			game.r11Sprite.setPosition(game.s4.item_x - 28,game.s4.item_y -12);
-			game.r12Sprite.setPosition(game.s4.item_x + 12,game.s4.item_y -12);			 
-			if( game.s4.item_y > - 60){
+			game.r10Sprite.setPosition(game.s4.x - 68,game.s4.y -12);
+			game.r11Sprite.setPosition(game.s4.x - 28,game.s4.y -12);
+			game.r12Sprite.setPosition(game.s4.x + 12,game.s4.y -12);			 
+			if( game.s4.y > - 60){
 
 			game.r10Sprite.draw(game.batch);
 			game.r11Sprite.draw(game.batch);
 			game.r12Sprite.draw(game.batch);
 			}
 			}
-		if(game.s5.item_y > -100)
+		if(game.s5.y > -100)
 		game.s5.draw(game.batch);
-		if(game.s5.czyKupiony == true){
+		if(game.s5.isAlreadyBought == true){
 			game.r13Sprite.setScale((float)R13Scale);
 			game.r14Sprite.setScale((float)R14Scale);
 			game.r15Sprite.setScale((float)R15Scale);
-			game.r13Sprite.setPosition(game.s5.item_x - 68,game.s5.item_y -12);
-			game.r14Sprite.setPosition(game.s5.item_x - 28,game.s5.item_y -12);
-			game.r15Sprite.setPosition(game.s5.item_x + 12,game.s5.item_y -12);			 
-			if( game.s5.item_y > - 60){
+			game.r13Sprite.setPosition(game.s5.x - 68,game.s5.y -12);
+			game.r14Sprite.setPosition(game.s5.x - 28,game.s5.y -12);
+			game.r15Sprite.setPosition(game.s5.x + 12,game.s5.y -12);			 
+			if( game.s5.y > - 60){
 			game.r13Sprite.draw(game.batch);
 			game.r14Sprite.draw(game.batch);
 			game.r15Sprite.draw(game.batch);
 			}
 			}
-		if(game.s6.item_y > -100)
+		if(game.s6.y > -100)
 		game.s6.draw(game.batch);
-		if(game.s6.czyKupiony == true){
+		if(game.s6.isAlreadyBought == true){
 			game.r16Sprite.setScale((float)R16Scale);
 			game.r17Sprite.setScale((float)R17Scale);
 			game.r18Sprite.setScale((float)R18Scale);
-			game.r16Sprite.setPosition(game.s6.item_x - 68,game.s6.item_y -12);
-			game.r17Sprite.setPosition(game.s6.item_x - 28,game.s6.item_y -12);
-			game.r18Sprite.setPosition(game.s6.item_x + 12,game.s6.item_y -12);			 
-			if( game.s6.item_y > - 60){
+			game.r16Sprite.setPosition(game.s6.x - 68,game.s6.y -12);
+			game.r17Sprite.setPosition(game.s6.x - 28,game.s6.y -12);
+			game.r18Sprite.setPosition(game.s6.x + 12,game.s6.y -12);			 
+			if( game.s6.y > - 60){
 			game.r16Sprite.draw(game.batch);
 			game.r17Sprite.draw(game.batch);
 			game.r18Sprite.draw(game.batch);
 			}
 			}
 		
-if(game.s1.czyKupiony == false){
-	if( game.s1.item_y > - 60){
+if(game.s1.isAlreadyBought == false){
+	if( game.s1.y > - 60){
 
-		game.batch.draw(game.blueGem,game.s1.item_x+210,game.s1.item_y);		
-		game.WypiszPieniadzeHUD(game.batch, 0, game.s1.item_x+170, game.s1.item_y-10, 1, 1, 1, 1);
+		game.batch.draw(game.blueGem,game.s1.x+210,game.s1.y);		
+		game.WypiszPieniadzeHUD(game.batch, 0, game.s1.x+170, game.s1.y-10, 1, 1, 1, 1);
 }
 }
 else{
-	if( game.s1.item_y > - 60){
+	if( game.s1.y > - 60){
 
-	game.batch.draw(game.regionsMenu[16],game.s1.item_x + 120,game.s1.item_y+ 7);
+	game.batch.draw(game.regionsMenu[16],game.s1.x + 120,game.s1.y+ 7);
 }
 }
-if(game.s2.czyKupiony == false){
-	game.batch.draw(game.blueGem,game.s2.item_x+145,game.s2.item_y);		
-	game.WypiszPieniadzeHUD(game.batch, 50, game.s2.item_x+70, game.s2.item_y-10, 1, 1, 1, 1);
+if(game.s2.isAlreadyBought == false){
+	game.batch.draw(game.blueGem,game.s2.x+145,game.s2.y);		
+	game.WypiszPieniadzeHUD(game.batch, 50, game.s2.x+70, game.s2.y-10, 1, 1, 1, 1);
 }
 else{
-	if( game.s2.item_y > - 60){
+	if( game.s2.y > - 60){
 
-	game.batch.draw(game.regionsMenu[16],game.s2.item_x + 120,game.s2.item_y+ 7);
+	game.batch.draw(game.regionsMenu[16],game.s2.x + 120,game.s2.y+ 7);
 	}
 	}
-if(game.s3.czyKupiony == false){
-	game.batch.draw(game.blueGem,game.s3.item_x+120,game.s3.item_y);		
-	game.WypiszPieniadzeHUD(game.batch, 150, game.s3.item_x+20, game.s3.item_y-10, 1, 1, 1, 1);
+if(game.s3.isAlreadyBought == false){
+	game.batch.draw(game.blueGem,game.s3.x+120,game.s3.y);		
+	game.WypiszPieniadzeHUD(game.batch, 150, game.s3.x+20, game.s3.y-10, 1, 1, 1, 1);
 }
 else
 {
-	if( game.s3.item_y > - 60){
+	if( game.s3.y > - 60){
 
-	game.batch.draw(game.regionsMenu[16],game.s3.item_x + 120,game.s3.item_y+ 7);
+	game.batch.draw(game.regionsMenu[16],game.s3.x + 120,game.s3.y+ 7);
 	}
 	}
-if(game.s4.czyKupiony == false){
-	game.batch.draw(game.blueGem,game.s4.item_x+145,game.s4.item_y);		
-	game.WypiszPieniadzeHUD(game.batch, 350, game.s4.item_x+50, game.s4.item_y-10, 1, 1, 1, 1);
+if(game.s4.isAlreadyBought == false){
+	game.batch.draw(game.blueGem,game.s4.x+145,game.s4.y);		
+	game.WypiszPieniadzeHUD(game.batch, 350, game.s4.x+50, game.s4.y-10, 1, 1, 1, 1);
 }
 else
 {
-	if( game.s4.item_y > - 60){
+	if( game.s4.y > - 60){
 
-game.batch.draw(game.regionsMenu[16],game.s4.item_x + 120,game.s4.item_y+ 7);
+game.batch.draw(game.regionsMenu[16],game.s4.x + 120,game.s4.y+ 7);
 
 	}
 	}
-if(game.s5.czyKupiony == false){
-	game.batch.draw(game.blueGem,game.s5.item_x+120,game.s5.item_y);		
-	game.WypiszPieniadzeHUD(game.batch, 500, game.s5.item_x+30, game.s5.item_y-10, 1, 1, 1, 1);
+if(game.s5.isAlreadyBought == false){
+	game.batch.draw(game.blueGem,game.s5.x+120,game.s5.y);		
+	game.WypiszPieniadzeHUD(game.batch, 500, game.s5.x+30, game.s5.y-10, 1, 1, 1, 1);
 }
 else
-{	if( game.s5.item_y > - 60){
+{	if( game.s5.y > - 60){
 
-game.batch.draw(game.regionsMenu[16],game.s5.item_x + 120,game.s5.item_y+ 7);
+game.batch.draw(game.regionsMenu[16],game.s5.x + 120,game.s5.y+ 7);
 }}
-if(game.s6.czyKupiony == false){
-	game.batch.draw(game.blueGem,game.s6.item_x+145,game.s6.item_y);		
-	game.WypiszPieniadzeHUD(game.batch, 1000, game.s6.item_x+30, game.s6.item_y-10, 1, 1, 1, 1);
+if(game.s6.isAlreadyBought == false){
+	game.batch.draw(game.blueGem,game.s6.x+145,game.s6.y);		
+	game.WypiszPieniadzeHUD(game.batch, 1000, game.s6.x+30, game.s6.y-10, 1, 1, 1, 1);
 }
-else{	if( game.s6.item_y > - 60){
+else{	if( game.s6.y > - 60){
 
-game.batch.draw(game.regionsMenu[16],game.s6.item_x + 120,game.s6.item_y+ 7);
+game.batch.draw(game.regionsMenu[16],game.s6.x + 120,game.s6.y+ 7);
 
 }}
 
@@ -1638,12 +1641,12 @@ public void setGeneralAlpha(){
 	if(game.backButtonShop.y <= 710)	{
 		//System.out.println(odejmujacaSklep);
 		game.backButtonShop.y +=odejmujacaSklep;
-	game.s1.item_y += odejmujacaSklep;
-	game.s2.item_y += odejmujacaSklep;
-	game.s3.item_y += odejmujacaSklep;
-	game.s4.item_y += odejmujacaSklep;
-	game.s5.item_y += odejmujacaSklep;
-	game.s6.item_y += odejmujacaSklep;
+	game.s1.y += odejmujacaSklep;
+	game.s2.y += odejmujacaSklep;
+	game.s3.y += odejmujacaSklep;
+	game.s4.y += odejmujacaSklep;
+	game.s5.y += odejmujacaSklep;
+	game.s6.y += odejmujacaSklep;
 	game.spriteMessage.setPosition(game.spriteMessage.getX(), (float) (game.spriteMessage.getY() + odejmujacaSklep));
 	}
 	odejmujacaSklep += 0.4;
@@ -1720,12 +1723,12 @@ if(timerDoGory > 0.01)
 	timerDoGory = 0;
 if(game.backButtonShop.y > -100){		game.backButtonShop.y -=odejmujacaSklep;
 
-game.s1.item_y -= odejmujacaSklep;
-game.s2.item_y -= odejmujacaSklep;
-game.s3.item_y -= odejmujacaSklep;
-game.s4.item_y -= odejmujacaSklep;
-game.s5.item_y -= odejmujacaSklep;
-game.s6.item_y -= odejmujacaSklep;
+game.s1.y -= odejmujacaSklep;
+game.s2.y -= odejmujacaSklep;
+game.s3.y -= odejmujacaSklep;
+game.s4.y -= odejmujacaSklep;
+game.s5.y -= odejmujacaSklep;
+game.s6.y -= odejmujacaSklep;
 game.spriteMessage.setPosition(game.spriteMessage.getX(), (float) (game.spriteMessage.getY() - odejmujacaSklep));
 
 if(game.backButtonShop.y < -100)
@@ -1734,12 +1737,12 @@ przejscieDoInfo = false;
 odejmujacaSklep += 0.4;
 }
 else{czyWroc = false;odejmujacaSklep = 1; czyPrzejscie = false;czyPrzestac = false; game.backButtonShop.y = -100;
-game.s1.item_y = -175;
-game.s2.item_y = -255;
-game.s3.item_y = -333;
-game.s4.item_y = -410;
-game.s5.item_y = -485;
-game.s6.item_y = -560;
+game.s1.y = -175;
+game.s2.y = -255;
+game.s3.y = -333;
+game.s4.y = -410;
+game.s5.y = -485;
+game.s6.y = -560;
 game.spriteMessage.setPosition(70,-700);
 
 }
